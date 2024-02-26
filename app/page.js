@@ -1,5 +1,6 @@
 import PageHook from "@/app/pageHook";
-import Features from "@/Components/Features";
+
+import Features from "./Features";
 import Zigzag from "@/Components/ZigZag";
 import Hero from "@/Components/Hero";
 import Main from "@/Components/Main";
