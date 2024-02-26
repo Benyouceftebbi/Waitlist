@@ -1,3 +1,7 @@
+"use client";
+import { TbArrowsJoin2 } from "react-icons/tb";
+
+
 export default function Hero() {
     return (
       <section>
@@ -20,17 +24,34 @@ export default function Hero() {
           <div className="relative pt-32 pb-10 md:pt-40 md:pb-16">
   
             {/* Section header */}
-            <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h1 mb-4  inline-block" data-aos="fade-up">AcademySync: Empowering Sports Academies</h1>
-              <p className="text-2xl text-gray-400 mb-1" data-aos="fade-up" data-aos-delay="200"> Unlock Efficiency and Growth! Discover the Power of AcademySync and Be Ready for a New Era in Sports Academy Management. Sign Up to Our Waitlist to be notified when we launch!</p>
-         
+            <div className="max-w-3xl mx-auto text-center">
+            <h1 className="h1 mb-4  inline-block" data-aos="fade-up">Save time, cut costs, and leave your clients impressed effortlessly</h1>
+              <p className="text-2xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">All in one solution for your sport academies right from facility scheduling, tennis classes, events, private coaching, payments and beyond. AcademySync is here to level up your business.</p>
+        
             </div>
-  
 
+            <div className="flex justify-center">
+  <button
+    className="flex items-center justify-center gap-x-3 bg-gradient-to-tr from-black from-50% via-black/40 to-gray-600/40 via-45% border-t-gray-700 disabled:cursor-not-allowed lg:w-36 shadow-md border border-b-0 border-r-0 border-l-0 bg-black mt-4 lg:mt-0 rounded-md px-2 py-2.5 font-InterMedium text-sm text-gray-200 dark:text-gray-500"
+    type="button"
+    onClick={() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    }}
+  >
+    <TbArrowsJoin2 className="text-[#383127]" />
+    <span className="shrink-0">Join Waitlist</span>
+  </button>
+</div>
   
           </div>
-  
-        </div>
+    
+
+
+</div>
+   
       </section>
     )
   }

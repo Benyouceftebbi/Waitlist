@@ -34,12 +34,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-450 text-gray-200 tracking-tight`}>
-        
+
         <Theming>
+        <div className="flex flex-col min-h-screen overflow-hidden">
         <Header/>
           <main>
             {children}
             </main>
+            </div>
         </Theming>
       </body>
     </html>
