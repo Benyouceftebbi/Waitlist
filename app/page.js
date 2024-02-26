@@ -1,9 +1,9 @@
 import PageHook from "@/app/pageHook";
 
-import Features from "./Features";
-import Zigzag from "@/Components/ZigZag";
-import Hero from "@/Components/Hero";
-import Main from "@/Components/Main";
+import Features from "@/app/Features";
+import Zigzag from "@/app/ZigZag";
+import Hero from "@/app/Hero";
+import Main from "@/app/Main";
 
 function page() {
  return (
