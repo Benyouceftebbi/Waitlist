@@ -38,6 +38,7 @@ import Features from "@/Components/Features";
 import Zigzag from "@/Components/ZigZag";
 import Main from "@/Components/Main";
 import Hero from "@/Components/Hero";
+import Header from "./Header/page";
 
 // const emailSchema = z.object({
 //   email: z.string().email()
@@ -111,6 +112,7 @@ function PageHook() {
 
   return (
     <div className="h-full w-full p-3 flex items-center justify-center relative z-50">
+     
       <Snowfall
         snowflakeCount={200}
         color="grey"
@@ -122,8 +124,8 @@ function PageHook() {
         }}
         speed={"140"}
         radius={"12"}
-      />
-         
+      /> 
+
       <section className=" mt-5  ">
       <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
@@ -159,7 +161,7 @@ function PageHook() {
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="flex flex-col lg:flex-row mx-auto lg:space-x-2 max-w-lg mt-3" 
-              data-aos="fade-up" data-aos-delay="300" >
+            >
             
               <Controller
                 name="email"
@@ -221,6 +223,7 @@ function PageHook() {
                 alt="shake head"
                 src={"/img/shake.gif"}
                 className="w-32"
+                unoptimized={true}
               />
             </div>
             <div className="flex items-center justify-center">
@@ -389,7 +392,7 @@ function PageHook() {
               ))} */}
             </form>
           </div>
-          <div className="p-3 rounded-lg border dark:border-white/10 border-neutral-400 dark:border-opacity-10 relative top-14 sm:top-14 lg:top-24 max-w-xl mx-auto flex flex-col lg:flex-row justify-between items-center text-sm">
+          {/* <div className="p-3 rounded-lg border dark:border-white/10 border-neutral-400 dark:border-opacity-10 relative top-14 sm:top-14 lg:top-24 max-w-xl mx-auto flex flex-col lg:flex-row justify-between items-center text-sm">
             <p className=" text-zinc-500 dark:text-zinc-100">
               Get ready to redefine your email experience.
             </p>
@@ -400,12 +403,12 @@ function PageHook() {
             >
               <span>Terms & Conditions</span>
             </Link>
-            {/* <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+            <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
             <RecievedModal
               isOpenModel={isOpenModel}
               setIsOpenModel={setIsOpenModel}
             />
-          </div>
+          </div> */}
         </div>
         {/* {isOpenModel && <p>Submitted</p>} */}
       </section>

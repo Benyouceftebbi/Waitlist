@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-450 text-gray-200 tracking-tight`}>
         
         <Theming>
-<Header/>
+        <Header/>
           <main>
             {children}
             </main>
