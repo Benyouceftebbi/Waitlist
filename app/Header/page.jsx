@@ -1,287 +1,50 @@
-"use client";
+import Link from 'next/link'
 
-import { useState, useEffect } from "react";
-import { twMerge } from "tailwind-merge";
 
-import Link from "next/link";
-import Image from "next/image";
-import { useTheme } from "next-themes";
-
-import {
-  PiTwitterLogoThin,
-  PiInstagramLogoThin,
-  PiGithubLogoLight,
-} from "react-icons/pi";
-
-import {
-  AnimatePresence,
-  motion,
-  useCycle,
-  useTransform,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
-
-const itemVariants = {
-  closed: {
-    opacity: 0,
-  },
-  open: { opacity: 1 },
-};
-
-const sideVariants = {
-  closed: {
-    transition: {
-      staggerChildren: 0.1,
-      staggerDirection: -1,
-    },
-  },
-  open: {
-    transition: {
-      staggerChildren: 0.1,
-      staggerDirection: 1,
-    },
-  },
-};
-
-const ButtonVariant = {
-  closed: {
-    height: "4rem",
-    transition: { duration: 0.1 },
-  },
-
-  open: {
-    height: "25rem",
-    transition: { when: "beforeChildren", duration: 0.1 },
-  },
-};
-
-let textvariant = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-  },
-};
-
-// const links = [
-//   { name: "Discover", href: "/" },
-//   { name: "Templates", href: "/templates" },
-//   { name: "Mockups", href: "/Mockups" },
-//   { name: "Graphics", href: "/graphics" },
-// ];
-// const bootonLinks = [
-//   { name: "Magazine", href: "/magazine" },
-//   { name: "About", href: "/about" },
-//   { name: "Support", href: "/support" },
-//   { name: "Contact", href: "/contact" },
-// ];
-
-let Icons = [
-  { name: <PiTwitterLogoThin />, href: "https://twitter.com/Joenaldo" },
-  { name: <PiInstagramLogoThin />, href: "https://instagram.com/Joscriptt " },
-  { name: <PiGithubLogoLight />, href: "https://github.com/Joscriptt" },
-];
-
-const people = [
-  {
-    id: 1,
-    name: "INSTAGRAM",
-    designation: "@Joscriptt",
-    image: "/img/time.png",
-    href: "https://instagram.com/Joscriptt ",
-  },
-  {
-    id: 2,
-    name: "TWITTER",
-    designation: "@Joenaldo",
-    image: "/img/alarm.png",
-    href: "https://twitter.com/Joenaldo",
-  },
-  {
-    id: 3,
-    name: "GITHUB",
-    designation: "Joscriptt",
-    image: "/img/party.png",
-    href: "https://github.com/Joscriptt",
-  },
-];
-
-function Headpage() {
-  const [open, cycleOpen] = useCycle(false, true);
-  const [isOpen, setIsOpen] = useState(false);
-  const [checked, setChecked] = useState(false);
-
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const springConfig = { stiffness: 100, damping: 5 };
-  const x = useMotionValue(0); // going to set this value on mouse move
-
-  // rotate the tooltip
-  const rotate = useSpring(
-    useTransform(x, [-100, 100], [-45, 45]),
-    springConfig
-  );
-
-  // translate the tooltip
-  const translateX = useSpring(
-    useTransform(x, [-100, 100], [-50, 20]),
-    springConfig
-  );
-
-  const handleMouseMove = (event) => {
-    const halfWidth = event.target.offsetWidth / 2;
-    x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
-  };
-
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-    cycleOpen(!open);
-  };
-
+export default function Header() {
   return (
-    <>
-      <div className="flex justify-between md:max-w-5xl max-w-lg mx-auto lg:mt-16 mt-11 md:px-8 px-9">
-        <div className="flex gap-x-3 items-center">
-          <Switch checked={checked} setChecked={setChecked} />
-          <p className="text-sm text-white hidden md:block">
-            Download as Template
-          </p>
+<header className="absolute w-full z-30">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <div className="flex items-center justify-between h-20">
+      {/* Site branding */}
+      <div className="flex items-center">
+        <div className="shrink-0 mr-4">
+          {/* Logo */}
+          <Link href="/" className="block inline-block" aria-label="Cruip">
+            <svg className="w-14 h-14 fill-current text-purple-600" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path d="M31.952 14.751a260.51 260.51 0 00-4.359-4.407C23.932 6.734 20.16 3.182 16.171 0c1.634.017 3.21.28 4.692.751 3.487 3.114 6.846 6.398 10.163 9.737.493 1.346.811 2.776.926 4.262zm-1.388 7.883c-2.496-2.597-5.051-5.12-7.737-7.471-3.706-3.246-10.693-9.81-15.736-7.418-4.552 2.158-4.717 10.543-4.96 16.238A15.926 15.926 0 010 16C0 9.799 3.528 4.421 8.686 1.766c1.82.593 3.593 1.675 5.038 2.587 6.569 4.14 12.29 9.71 17.792 15.57-.237.94-.557 1.846-.952 2.711zm-4.505 5.81a56.161 56.161 0 00-1.007-.823c-2.574-2.054-6.087-4.805-9.394-4.044-3.022.695-4.264 4.267-4.97 7.52a15.945 15.945 0 01-3.665-1.85c.366-3.242.89-6.675 2.405-9.364 2.315-4.107 6.287-3.072 9.613-1.132 3.36 1.96 6.417 4.572 9.313 7.417a16.097 16.097 0 01-2.295 2.275z" />
+            </svg>
+          </Link>
         </div>
+        <h1 className="h1 mb-4 inline-block">AcademySync</h1>
+      </div>
 
-        {/* come back to fix this later */}
 
-        {/* <div className="flex   gap-x-6 ">
-          {Icons.map((each) => (
-            <div
-              key={each.name}
-              className="hover:text-neutral-600 cursor-pointer transition-all ease-in text-xl duration-200  dark:text-white"
-            >
-              <Link href={each.href}>{each.name}</Link>
-            </div>
-          ))}
-        </div> */}
 
-        <div className="flex flex-row gap-x-4  ">
-          {people.map((testimonial, idx) => (
-            <div
-              className=" relative group"
-              key={testimonial.name}
-              onMouseEnter={() => setHoveredIndex(testimonial.id)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <AnimatePresence mode="wait">
-                {hoveredIndex === testimonial.id && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20, scale: 0.6 }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      transition: {
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 10,
-                      },
-                    }}
-                    exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                    style={{
-                      translateX: translateX,
-                      rotate: rotate,
-                      whiteSpace: "nowrap",
-                    }}
-                    className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs  flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
-                  >
-                    <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px " />
-                    <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px " />
-                    <div className="font-bold text-white relative z-30 text-base">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-white text-xs">
-                      {testimonial.designation}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              <Link href={testimonial.href}>
-                <Image
-                  onMouseMove={handleMouseMove}
-                  height={100}
-                  width={100}
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="object-cover !m-0 !p-0 object-top rounded-full h-8 w-8  group-hover:scale-105 group-hover:z-30   relative transition duration-500"
-                />
-              </Link>
-            </div>
-          ))}
+          {/* Desktop navigation */}
+          {/* <nav className="hidden md:flex md:grow">
+    
+            <ul className="flex grow justify-end flex-wrap items-center">
+              <li>
+                <Link
+                  href="/signin"
+                  className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                >
+                  Sign in
+                </Link>
+              </li>
+              <li>
+                <Link href="/signup" className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3">
+                  Sign up
+                </Link>
+              </li>
+            </ul>
+          </nav> */}
+
+   
+
         </div>
       </div>
-    </>
-  );
-}
-
-{
-  /* <ThemeToggleNav /> */
-}
-export default Headpage;
-
-const Switch = ({ checked, setChecked }) => {
-  let { resolvedTheme, setTheme } = useTheme();
-  let otherTheme = resolvedTheme === "dark" ? "light" : "dark";
-
-  let toggleTheme = (e) => {
-    setChecked(e.target.checked);
-    setTheme(otherTheme);
-  };
-  return (
-    <form className="flex space-x-4  antialiased items-center">
-      <label
-        htmlFor="checkbox"
-        className={twMerge(
-          "h-7  px-1  flex items-center border border-transparent shadow-[inset_0px_0px_12px_rgba(0,0,0,0.25)] rounded-full w-[60px] relative cursor-pointer transition duration-200",
-          checked ? "bg-cyan-500" : "bg-[#07070A] border-slate-800"
-        )}
-      >
-        <motion.div
-          initial={{
-            width: "20px",
-            x: checked ? 0 : 32,
-          }}
-          animate={{
-            height: ["20px", "10px", "20px"],
-            width: ["20px", "30px", "20px", "20px"],
-            x: checked ? 32 : 0,
-          }}
-          transition={{
-            duration: 0.3,
-            delay: 0.1,
-          }}
-          // key={String(checked)}
-          className={twMerge(
-            "h-[20px] block rounded-full bg-white shadow-md z-10"
-          )}
-        ></motion.div>
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={toggleTheme}
-          className="hidden"
-          id="checkbox"
-        />
-      </label>
-    </form>
-  );
-};
-
-export function ThemeToggleNav({ className, rel, mouseX, ...props }) {
-  let { resolvedTheme, setTheme } = useTheme();
-  let otherTheme = resolvedTheme === "dark" ? "light" : "dark";
-  let [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  return <></>;
+    </header>
+  )
 }
