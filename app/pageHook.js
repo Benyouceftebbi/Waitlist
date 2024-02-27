@@ -92,9 +92,11 @@ function PageHook() {
 
   const onSubmit = async (data) => {
     try {
-      let res = await fetch("/api/email", {
+  
+      let res = await fetch("/api/submit", {
         method: "POST",
-        body: JSON.stringify(data.email),
+    
+        body: JSON.stringify({email:data.email}),
       });
       if (res.ok) {
         reset();
@@ -422,7 +424,7 @@ const RecievedModal = ({ isOpenModel, setIsOpenModel }) => {
 
             <div className="relative z-10">
               <p className=" text-center text-lg mt-4  mb-6">
-                We'll send a notification as soon as v0 is ready for you to
+                We'll send an E-mail as soon as AcademySync is ready for you to
                 experience
               </p>
               <div className="flex gap-2">
@@ -430,7 +432,7 @@ const RecievedModal = ({ isOpenModel, setIsOpenModel }) => {
                   onClick={() => setIsOpenModel(false)}
                   className=" flex justify-center gap-x-3 items-center bg-transparent bg-white text-black hover:bg-neutral-300  transition-colors duration-200 dark:text-black font-semibold w-60 mx-auto py-2 rounded px-8"
                 >
-                  <span>Happy Coding</span>
+                  <span>Have a nice day!</span>
                   <Image
                     width={7}
                     height={7}

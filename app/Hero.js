@@ -26,7 +26,7 @@ export default function Hero() {
             {/* Section header */}
             <div className="max-w-3xl mx-auto text-center">
             <h1 className="h1 mb-4  inline-block" data-aos="fade-up">Save time, cut costs, and leave your clients impressed effortlessly</h1>
-              <p className="text-2xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">All in one solution for your sport academies right from facility scheduling, tennis classes, events, private coaching, payments and beyond. AcademySync is here to level up your business.</p>
+              <p className="text-2xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">All in one solution for your sport academies right from facility scheduling, classes, events, private coaching, payments and beyond. AcademySync is here to level up your business.</p>
         
             </div>
 

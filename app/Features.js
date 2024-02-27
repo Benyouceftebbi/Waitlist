@@ -8,7 +8,7 @@ export default function Features() {
          
             {/* Section header */}
             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4 font-bold text-5xl  leading-tight tracking-tighter mb-4">Streamlining Workflows for Sports Academies</h2>
+            <h2 className="h2 mb-4 font-bold text-5xl  leading-tight tracking-tighter mb-4">Streamline Workflows for your Sports Academies</h2>
               <p className="text-2xl text-gray-400">Many sports academies grapple with their workflows. AcademySync simplifies the process for you.</p>
             </div>
             
